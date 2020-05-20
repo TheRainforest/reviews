@@ -1,39 +1,30 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const db = require("../database");
+const express = require('express');
+const db = require('../database');
+// const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 3004;
+const host = process.env.host || 'localhost';
+const port = process.env.port || 3004;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+// MIDDLEWARE
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/../client/dist'));
 
-app.use(express.static(__dirname + "/../client/dist"));
-
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server hosted at http://${host}:${port}`);
 });
 
-app.get("/api/allreviews/", (req, res) => {
-  if (req._parsedOriginalUrl.search) {
-    var arr = req._parsedOriginalUrl.search.split("=");
-console.log(req._parsedOriginalUrl.search);
-  }
-   console.log('id server: ', arr[1]);
-  if (arr) {
-    db.getAllReviews(arr[1], (err, data) => {
-      if (err) {
-        res.status(500).send("Something Broke!");
-      } else {
-        res.json(data);
-      }
-    });
-  } else {
-    db.getAllReviews(null, (err, data) => {
-      if (err) {
-        res.status(500).send("Something Broke!");
-      } else {
-        res.json(data);
-      }
-    });
-  }
+// HTTP HANDLERS
+app.get('/api/allreviews/', (req, res) => {
+  var arr = req._parsedOriginalUrl.search;
+  var id = arr === null ? 1 : arr.split('=')[1];
+
+  db.getAllReviews(id, (err, data) => {
+    if (err) {
+      res.status(500).send("Something Broke!");
+    } else {
+      res.status(200).json(data);
+    }
+  });
+
 });

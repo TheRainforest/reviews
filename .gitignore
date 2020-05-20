@@ -1,5 +1,13 @@
-node_modules
+# Secrets
+.env
+
+# Compiled Dirs
 bundle.js
+
+# Dev Dependencies
+node_modules
+
+# Local tests
 config.js
 clover.xml
 coverage-final.json

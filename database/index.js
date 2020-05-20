@@ -1,14 +1,10 @@
-const mariadb = require("mariadb/callback");
-const mariadbConfig = require("./config.js");
+const db = require("mysql");
+const dbConfig = require("./config.js");
 
-const connection = mariadb.createConnection(mariadbConfig);
+const connection = db.createConnection(dbConfig);
 
 const getAllReviews = function(id, callback) {
-  if (id === null) {
-    var sql = `select * from reviews where id=${1}`;
-  } else {
-    var sql = `select * from reviews where id=${id}`;
-  }
+  var sql = `select * from reviews where id=${id}`;
   connection.query(sql, function(err, results) {
     if (err) {
       callback(err);
