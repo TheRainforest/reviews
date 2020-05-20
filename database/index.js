@@ -5,13 +5,11 @@ const connection = db.createConnection(dbConfig);
 
 const getAllReviews = function(id, callback) {
   var sql = `select * from reviews where id=${id}`;
-  connection.query(sql, function(err, results) {
-    if (err) {
-      callback(err);
-    }
-    callback(null, results);
-  });
+  connection.query(sql, callback);
 };
 
-module.exports.connection = connection;
-module.exports.getAllReviews = getAllReviews;
+module.exports = {
+  connection,
+  getAllReviews
+}
+

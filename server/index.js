@@ -26,5 +26,4 @@ app.get('/api/allreviews/', (req, res) => {
       res.status(200).json(data);
     }
   });
-
-});
+}
