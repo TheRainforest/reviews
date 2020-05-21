@@ -1,6 +1,5 @@
 const express = require('express');
 const db = require('../database');
-// const bodyParser = require("body-parser");
 
 const app = express();
 const host = process.env.host || 'localhost';
@@ -49,7 +48,7 @@ app.get('/api/allreviews/review/:id', (req, res) => {
 app.put('/api/allreviews/review/:id', (req, res) => {
   db.updateReview(req.params.id, req.body, (err, data) => {
     if (err) {
-      res.status(500).send(`Failed to update the review ${err}`);
+      res.status(500).send('Failed to update the review');
     } else {
       res.sendStatus(200);
     }

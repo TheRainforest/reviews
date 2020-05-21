@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   getAllReviews() {
-    const id = new URLSearchParams(document.location.search.substring(1)).get('id');
+    const id = new URLSearchParams(document.location.search.substring(1)).get('id') || 1;
     $.get(`/api/allreviews/${id}`, (newData) => {
       this.setState({
         reviews: newData,
