@@ -23,6 +23,16 @@ npm run build:prod
 npm start:prod
 ```
 
+### CRUD API
+|    Method    |           Endpoint          |                   Action                |
+| ------------ | --------------------------- | --------------------------------------- |
+| **POST**     |  /api/allreviews/:id        |  CREATE a new review for an item id     |
+| **GET**      |  /api/allreviews/:id        |  READ and return reviews for an item id |
+| **GET**      |  /api/allreviews/review:id  |  READ and return a review by review id  |
+| **PUT**      |  /api/allreviews/review/:id |  UPDATE review by review id             |
+| **DELETE**   |  /api/allreviews/review/:id |  DELETE review by review id             |
+
+
 ## Requirements
 This module follows [Airbnb style guide](https://github.com/airbnb/javascript)
 
