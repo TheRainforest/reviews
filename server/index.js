@@ -1,6 +1,5 @@
 const express = require('express');
 const db = require('../database');
-const bodyParser = require("body-parser");
 
 const app = express();
 const host = process.env.host || 'localhost';
@@ -16,7 +15,6 @@ app.listen(port, () => {
 });
 
 // HTTP HANDLERS
-
 app.get('/api/allreviews/:id', (req, res) => {
   db.getAllReviews(req.params.id, (err, data) => {
     if (err) {

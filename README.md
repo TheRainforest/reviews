@@ -1,5 +1,5 @@
 # Rainforest: Reviews Service
-> A service to handle reviews, built on Austin's Legacy Code.
+> Adds a new backend to the legacy code from Austin's frontend for the reviews service of an online retailer.
 
 ## Related Projects
 https://github.com/AmazonRainforest
@@ -28,11 +28,12 @@ npm start:prod
 | ------------ | --------------------------- | --------------------------------------- |
 | **POST**     |  /api/allreviews/:id        |  CREATE a new review for an item id     |
 | **GET**      |  /api/allreviews/:id        |  READ and return reviews for an item id |
-| **GET**      |  /api/allreviews/review:id  |  READ and return a review by review id  |
+| **GET**      |  /api/allreviews/review/:id |  READ and return a review by review id  |
 | **PUT**      |  /api/allreviews/review/:id |  UPDATE review by review id             |
 | **DELETE**   |  /api/allreviews/review/:id |  DELETE review by review id             |
 
-**Example Response for /api/allreviews/review/:id**
+**Example Data Inputs for the POST and PUT endpoints**
+/:id is the review id whereas itemId refers to the item for purchase
 ```sh
 {
   "itemId": 1,
