@@ -10,16 +10,24 @@ class App extends React.Component {
     this.state = {
       reviews: [],
     };
+    this.getAllReviews = this.getAllReviews.bind(this);
   }
 
   componentDidMount() {
-    const id = window.location.search;
-    const thisBind = this;
-    $.get(`/api/allreviews/${id}`, (newData) => {
-      thisBind.setState({
-        reviews: newData,
+    this.getAllReviews();
+  }
+
+  getAllReviews() {
+    const id = new URLSearchParams(document.location.search.substring(1)).get('id') || 1;
+    $.ajax({
+      method: 'GET',
+      url: `/api/allreviews/${id}`
+    })
+      .done(reviews => {
+        this.setState({
+          reviews
+        });
       });
-    });
   }
 
   render() {

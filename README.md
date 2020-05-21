@@ -1,5 +1,5 @@
 # Rainforest: Reviews Service
-> A service to handle reviews.
+> Adds a new backend to the legacy code from Austin's frontend for the reviews service of an online retailer.
 
 ## Related Projects
 https://github.com/AmazonRainforest
@@ -21,6 +21,31 @@ npm run build:prod
 2. To start up the client
 ```sh
 npm start:prod
+```
+
+### CRUD API
+|    Method    |           Endpoint          |                   Action                |
+| ------------ | --------------------------- | --------------------------------------- |
+| **POST**     |  /api/allreviews/:id        |  CREATE a new review for an item id     |
+| **GET**      |  /api/allreviews/:id        |  READ and return reviews for an item id |
+| **GET**      |  /api/allreviews/review/:id |  READ and return a review by review id  |
+| **PUT**      |  /api/allreviews/review/:id |  UPDATE review by review id             |
+| **DELETE**   |  /api/allreviews/review/:id |  DELETE review by review id             |
+
+**Example Data Inputs for the POST and PUT endpoints**
+/:id is the review id whereas itemId refers to the item for purchase
+```json
+{
+  "itemId": 1,
+  "name": "Reviewing Hobbyist",
+  "stars": "4.5",
+  "date": "January 10, 2020",
+  "review": "Gone are the days of biting off slice-sized chunks of banana and spitting them onto a serving tray…. Next on my wish list: a kitchen tool for dividing frozen water into cube-sized chunks.",
+  "image": "",
+  "title": "Best Hutzler 571 Banana Slicer",
+  "avatar": 2,
+  "foundThisHelpful": 1952
+}
 ```
 
 ## Requirements
