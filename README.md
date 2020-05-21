@@ -34,7 +34,7 @@ npm start:prod
 
 **Example Data Inputs for the POST and PUT endpoints**
 /:id is the review id whereas itemId refers to the item for purchase
-```sh
+```json
 {
   "itemId": 1,
   "name": "Reviewing Hobbyist",
