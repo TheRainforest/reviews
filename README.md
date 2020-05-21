@@ -32,6 +32,20 @@ npm start:prod
 | **PUT**      |  /api/allreviews/review/:id |  UPDATE review by review id             |
 | **DELETE**   |  /api/allreviews/review/:id |  DELETE review by review id             |
 
+**Example Response for /api/allreviews/review:id**
+```sh
+{
+  "itemId": 1,
+  "name": "Reviewing Hobbyist",
+  "stars": "4.5",
+  "date": "January 10, 2020",
+  "review": "Gone are the days of biting off slice-sized chunks of banana and spitting them onto a serving tray…. Next on my wish list: a kitchen tool for dividing frozen water into cube-sized chunks.",
+  "image": "",
+  "title": "Best Hutzler 571 Banana Slicer",
+  "avatar": 2,
+  "foundThisHelpful": 1952
+}
+```
 
 ## Requirements
 This module follows [Airbnb style guide](https://github.com/airbnb/javascript)
