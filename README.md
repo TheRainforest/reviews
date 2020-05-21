@@ -1,5 +1,5 @@
 # Rainforest: Reviews Service
-> A service to handle reviews.
+> A service to handle reviews, built on Austin's Legacy Code.
 
 ## Related Projects
 https://github.com/AmazonRainforest
@@ -32,7 +32,7 @@ npm start:prod
 | **PUT**      |  /api/allreviews/review/:id |  UPDATE review by review id             |
 | **DELETE**   |  /api/allreviews/review/:id |  DELETE review by review id             |
 
-**Example Response for /api/allreviews/review:id**
+**Example Response for /api/allreviews/review/:id**
 ```sh
 {
   "itemId": 1,
