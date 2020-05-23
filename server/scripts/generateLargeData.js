@@ -17,7 +17,7 @@ const country = [
 ];
 
 // Write the record to the CSV
-let writer = fs.createWriteStream('server/data/10MilReviews.csv');
+let writer = fs.createWriteStream('server/data/10MReviews.csv');
 writer.write('itemId,id,name,stars,date,review,image,title,avatar,foundThisHelpful\n', 'utf8');
 console.time();
 
@@ -37,7 +37,7 @@ function writeRecords(writer, encoding, callback) {
         writer.write(encoding, callback)
       } else {
 
-        let reviewsCount = itemIdCounter < minRecords * .99 ? getRandomInt(5) : getRandomInt(12);
+        let reviewsCount = itemIdCounter < minRecords * .99 ? getRandomInt(5) : getRandomInt(28);
         let review = {};
 
         // Create data for a review if there is at least 1 review to be added to the item

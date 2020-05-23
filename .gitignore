@@ -15,4 +15,4 @@ lcov.info
 lcov-report
 
 # Script Outputs
-server/data/10MilReviews.csv
+server/data
