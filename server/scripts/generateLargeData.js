@@ -1,5 +1,6 @@
 const fs = require('fs');
 const faker = require('faker');
+const moment = require('moment');
 
 // Get a random number
 const getRandomInt = (max) => {
@@ -17,8 +18,8 @@ const country = [
 ];
 
 // Write the record to the CSV
-let writer = fs.createWriteStream('server/data/10MReviews.csv');
-writer.write('itemId,id,name,stars,date,review,image,title,avatar,foundThisHelpful\n', 'utf8');
+let writer = fs.createWriteStream('server/data/1000Reviews.csv');
+writer.write('itemId,id,name,stars,date,country,review,image,title,avatar,foundThisHelpful\n', 'utf8');
 console.time();
 
 // reviewIdCounter increments globally so as to maintain review id uniqueness
@@ -50,7 +51,9 @@ function writeRecords(writer, encoding, callback) {
               id: reviewIdCounter += 1,
               name: `${faker.name.firstName()} ${faker.name.lastName()}`,
               stars: getRandomInt(21),
-              date: `"Reviewed in ${ country[getRandomInt(6)] } on ${faker.date.month()} ${getRandomInt(29) + 1 + ","} ${getRandomInt(2) + 2018}"`,
+              date: moment(faker.date.recent(90)).format('MMMM DD[,] YYYY'),
+              country: country[getRandomInt(6)],
+              // date: `"Reviewed in ${ country[getRandomInt(6)] } on ${moment(faker.date.recent(90)).format('MMMM DD[,] YYYY')}"`,
               review: `${faker.lorem.sentences()} ${faker.lorem.sentences()}`,
               image: 'randomURL',
               title: faker.lorem.sentence(),
