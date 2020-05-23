@@ -18,7 +18,7 @@ const country = [
 ];
 
 // Write the record to the CSV
-let writer = fs.createWriteStream('server/data/1000Reviews.csv');
+let writer = fs.createWriteStream('server/data/10MReviews.csv');
 writer.write('itemId,id,name,stars,date,country,review,image,title,avatar,foundThisHelpful\n', 'utf8');
 console.time();
 
@@ -28,7 +28,7 @@ let itemIdCounter = 0;
 
 function writeRecords(writer, encoding, callback) {
   // Create x-number of records based on desired number of records (minRecords)
-  let minRecords = 1000;
+  let minRecords = 10000000;
   function write() {
     let checkMem = true;
 
@@ -53,7 +53,6 @@ function writeRecords(writer, encoding, callback) {
               stars: getRandomInt(21),
               date: `"${moment(faker.date.recent(90)).format('MMMM DD[,] YYYY')}"`,
               country: country[getRandomInt(6)],
-              // date: `"Reviewed in ${ country[getRandomInt(6)] } on ${moment(faker.date.recent(90)).format('MMMM DD[,] YYYY')}"`,
               review: `${faker.lorem.sentences()} ${faker.lorem.sentences()}`,
               image: 'randomURL',
               title: faker.lorem.sentence(),
