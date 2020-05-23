@@ -23,12 +23,14 @@ for (var j = 0; j < 8; j++) {
       `INSERT INTO reviews
       (itemId, name, stars, date, review, image, title, avatar, foundThisHelpful)
       VALUES(
-        ${getRandomInt( 101 )},
+        ${getRandomInt(101)},
         '${faker.name.firstName()} ${faker.name.lastName()}',
-        '${getRandomInt( 21 )}',
+        '${getRandomInt(21)}',
         'Reviewed in ${ arr[getRandomInt(6)] } on ${faker.date.month()} ${getRandomInt(29) + 1 + ","} ${getRandomInt(2) + 2018}',
         '${faker.lorem.sentences()} ${faker.lorem.sentences()}',
-        'randomURL', '${faker.lorem.sentence()}', '${getRandomInt(16)}',
+        'randomURL',
+        '${faker.lorem.sentence()}',
+        '${getRandomInt(16)}',
         '${getRandomInt(86)}')`;
 
       db.connection.query(insertStatement, function(err, result) {});

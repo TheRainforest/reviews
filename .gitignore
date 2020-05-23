@@ -13,3 +13,6 @@ clover.xml
 coverage-final.json
 lcov.info
 lcov-report
+
+# Script Outputs
+server/data/10MilReviews.csv
