@@ -103,7 +103,7 @@ class Review extends React.Component {
             </button>
             <span className={style.reviewTitle}>{this.props.title}</span>
           </div>
-          <div className={style.reviewDate}>{this.props.date}</div>
+          <div className={style.reviewDate}>Reviewed in {this.props.country} on {this.props.date}</div>
           <div className={style.verified}>Verified Purchase</div>
           <div id={style.reviewBody}>{this.props.reviewBody}</div>
           <div id={style.foundthishelpful}>

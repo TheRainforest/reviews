@@ -288,6 +288,7 @@ class Reviews extends React.Component {
               name={review.name}
               stars={review.stars}
               date={review.date}
+              country={review.country}
               reviewBody={review.review}
               image={review.image}
               title={review.title}

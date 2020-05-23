@@ -1,5 +1,6 @@
 const db = require("../../database");
 const faker = require("faker");
+const moment = require("moment");
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -21,14 +22,17 @@ for (var j = 0; j < 8; j++) {
     while (counter < 1000) {
       var insertStatement =
       `INSERT INTO reviews
-      (itemId, name, stars, date, review, image, title, avatar, foundThisHelpful)
+      (itemId, name, stars, date, country, review, image, title, avatar, foundThisHelpful)
       VALUES(
-        ${getRandomInt( 101 )},
+        ${getRandomInt(101)},
         '${faker.name.firstName()} ${faker.name.lastName()}',
-        '${getRandomInt( 21 )}',
-        'Reviewed in ${ arr[getRandomInt(6)] } on ${faker.date.month()} ${getRandomInt(29) + 1 + ","} ${getRandomInt(2) + 2018}',
+        '${getRandomInt(21)}',
+        '${moment(faker.date.recent(90)).format('MMMM DD[,] YYYY')}',
+        '${ arr[getRandomInt(6)]}',
         '${faker.lorem.sentences()} ${faker.lorem.sentences()}',
-        'randomURL', '${faker.lorem.sentence()}', '${getRandomInt(16)}',
+        'randomURL',
+        '${faker.lorem.sentence()}',
+        '${getRandomInt(16)}',
         '${getRandomInt(86)}')`;
 
       db.connection.query(insertStatement, function(err, result) {});

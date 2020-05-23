@@ -5,12 +5,12 @@ const connection = db.createConnection(dbConfig);
 
 // SAMPLE INSERT
 `INSERT INTO reviews
-            (itemId, name, stars, date, review, image, title, avatar, foundThisHelpful)
-            VALUES(1, 'Orange', 4, 'November 10, 2019', 'It\'s alright', '', '', 1, 1)`;
+            (itemId, name, stars, date, country, review, image, title, avatar, foundThisHelpful)
+            VALUES(1, 'Orange', 4, 'November 10, 2019', 'United States', 'It\'s alright', '', '', 1, 1)`;
 
 const addReview = (itemId, review, callback) => {
   var sql = `INSERT INTO reviews
-            (itemId, name, stars, date, review, image, title, avatar, foundThisHelpful)
+            (itemId, name, stars, date, country, review, image, title, avatar, foundThisHelpful)
             VALUES(${itemId}, "${review.name}", "${review.stars}", "${review.date}", "${review.review}", "${review.image}", "${review.title}", ${review.avatar}, ${review.foundThisHelpful})`;
   connection.query(sql, callback);
 };
@@ -32,6 +32,7 @@ const updateReview = (reviewId, review, callback) => {
             name = "${review.name}",
             stars = "${review.stars}",
             date = "${review.date}",
+            country = "${review.country}",
             review = "${review.review}",
             image = "${review.image}",
             title = "${review.title}",
