@@ -28,7 +28,7 @@ let itemIdCounter = 0;
 
 function writeRecords(writer, encoding, callback) {
   // Create x-number of records based on desired number of records (minRecords)
-  let minRecords = 10000000;
+  let minRecords = 1000;
   function write() {
     let checkMem = true;
 
@@ -51,7 +51,7 @@ function writeRecords(writer, encoding, callback) {
               id: reviewIdCounter += 1,
               name: `${faker.name.firstName()} ${faker.name.lastName()}`,
               stars: getRandomInt(21),
-              date: moment(faker.date.recent(90)).format('MMMM DD[,] YYYY'),
+              date: `"${moment(faker.date.recent(90)).format('MMMM DD[,] YYYY')}"`,
               country: country[getRandomInt(6)],
               // date: `"Reviewed in ${ country[getRandomInt(6)] } on ${moment(faker.date.recent(90)).format('MMMM DD[,] YYYY')}"`,
               review: `${faker.lorem.sentences()} ${faker.lorem.sentences()}`,
