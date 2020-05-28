@@ -34,8 +34,8 @@ function writeRecords(writer, encoding, callback) {
 
     do {
       itemIdCounter += 1;
-      if (itemIdCounter === minRecords) {
-        writer.write(encoding, callback)
+      if (itemIdCounter === minRecords + 1) {
+        writer.write('', encoding, callback)
       } else {
 
         let reviewsCount = itemIdCounter < minRecords * .99 ? getRandomInt(5) : getRandomInt(28);
@@ -64,7 +64,17 @@ function writeRecords(writer, encoding, callback) {
           }
         } else {
           review = {
-            itemId: itemIdCounter
+            itemId: itemIdCounter,
+            id: null,
+            name: null,
+            stars: null,
+            date: null,
+            country: null,
+            review: null,
+            image: null,
+            title: null,
+            avatar: null,
+            foundThisHelpful: null
           }
           checkMem = writer.write(`${Object.values(review).toString()}\n`);
         }
