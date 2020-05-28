@@ -28,13 +28,13 @@ let itemIdCounter = 0;
 
 function writeRecords(writer, encoding, callback) {
   // Create x-number of records based on desired number of records (minRecords)
-  let minRecords = 10000000;
+  let minRecords = 10000001;
   function write() {
     let checkMem = true;
 
     do {
       itemIdCounter += 1;
-      if (itemIdCounter === minRecords + 1) {
+      if (itemIdCounter === minRecords) {
         writer.write('', encoding, callback)
       } else {
 
