@@ -19,3 +19,4 @@ server/data
 server/scripts/seed.js
 server/scripts/cassandraDB.js
 database/mysqlConfig.js
+database/mysqldb.js
