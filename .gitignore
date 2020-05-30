@@ -16,3 +16,4 @@ lcov-report
 
 # Script Outputs
 server/data
+scripts/cassandraDB.js

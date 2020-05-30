@@ -18,9 +18,9 @@ const country = [
 ];
 
 // Write the record to the CSV
-let writer = fs.createWriteStream('server/data/10MReviews.csv');
+let writer = fs.createWriteStream('/Users/leilei/Local/GitProjects/HRR45-SDC-DATAONLY/10MReviews.csv');
 writer.write('itemId,id,name,stars,date,country,review,image,title,avatar,foundThisHelpful\n', 'utf8');
-console.time();
+console.time('Data Generation');
 
 // reviewIdCounter increments globally so as to maintain review id uniqueness
 let reviewIdCounter = 0;
@@ -41,7 +41,7 @@ function writeRecords(writer, encoding, callback) {
         let reviewsCount = itemIdCounter < minRecords * .99 ? getRandomInt(5) : getRandomInt(28);
         let review = {};
 
-        // Create data for a review if there is at least 1 review to be added to the item
+        // Create data for a review if there is at least 1 review to be added to the item.
         // Otherwise solely increment the itemId to meet min records for requirement
         if (reviewsCount > 0) {
           let numReviews = 0;
@@ -62,21 +62,6 @@ function writeRecords(writer, encoding, callback) {
             numReviews += 1;
             checkMem = writer.write(`${Object.values(review).toString()}\n`);
           }
-        } else {
-          review = {
-            itemId: itemIdCounter,
-            id: null,
-            name: null,
-            stars: null,
-            date: null,
-            country: null,
-            review: null,
-            image: null,
-            title: null,
-            avatar: null,
-            foundThisHelpful: null
-          }
-          checkMem = writer.write(`${Object.values(review).toString()}\n`);
         }
       }
     } while((itemIdCounter < minRecords) && checkMem);
@@ -88,6 +73,6 @@ function writeRecords(writer, encoding, callback) {
 }
 
 writeRecords(writer, 'utf8', () => {
-  writer.end(console.timeEnd());
+  writer.end(console.timeEnd('Data Generation'));
   console.log(`Data Generation Complete for ${itemIdCounter} items and ${reviewIdCounter} review records`);
 });
