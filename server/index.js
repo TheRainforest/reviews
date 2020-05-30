@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../database');
+const db = require('../database/pgdb.js');
 
 const app = express();
 const host = process.env.host || 'localhost';
@@ -37,14 +37,24 @@ app.get('/api/allreviews/review/:id', (req, res) => {
   });
 });
 
+app.delete('/api/allreviews/review/:id', (req, res) => {
+  db.deleteReview(req.params.id, (err, data) => {
+    if (err) {
+      console.log('delete:', err);
+      res.status(500).send('Failed to delete review');
+    } else {
+      res.sendStatus(200);
+    }
+  })
+});
+
 app.post('/api/allreviews/:id', (req, res) => {
-  console.log(req.body);
-  db.addReview(req.params.id, req.body, (err) => {
+  db.addReview(req.params.id, req.body, (err, data) => {
     if (err) {
       console.log('post:', err);
       res.status(500).send('Failed to add review');
     } else {
-      res.sendStatus(200);
+      res.status(200).json(data);
     }
   });
 });
@@ -55,18 +65,7 @@ app.put('/api/allreviews/review/:id', (req, res) => {
       console.log('put:', err);
       res.status(500).send('Failed to update the review');
     } else {
-      res.sendStatus(200);
-    }
-  })
-});
-
-app.delete('/api/allreviews/review/:id', (req, res) => {
-  db.deleteReview(req.params.id, (err, data) => {
-    if (err) {
-      console.log('delete:', err);
-      res.status(500).send('Failed to delete review');
-    } else {
-      res.sendStatus(200);
+      res.status(200).json(data);
     }
   })
 });

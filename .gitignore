@@ -14,6 +14,9 @@ coverage-final.json
 lcov.info
 lcov-report
 
-# Script Outputs
+# Script Outputs and Unused DBs
 server/data
-scripts/cassandraDB.js
+server/scripts/seed.js
+server/scripts/cassandraDB.js
+database/mysqlConfig.js
+database/mysqldb.js
