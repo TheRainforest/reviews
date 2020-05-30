@@ -1,5 +1,6 @@
 # Secrets
 .env
+newrelic.js
 
 # Compiled Dirs
 client/dist/bundle.js
@@ -20,3 +21,4 @@ server/scripts/seed.js
 server/scripts/cassandraDB.js
 database/mysqlConfig.js
 database/mysqldb.js
+newrelic_agent.log

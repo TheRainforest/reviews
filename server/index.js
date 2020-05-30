@@ -1,3 +1,4 @@
+require('newrelic');
 require('dotenv').config();
 const express = require('express');
 const db = require('../database/pgdb.js');
