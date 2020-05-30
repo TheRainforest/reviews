@@ -32,7 +32,23 @@ npm start:prod
 | **PUT**      |  /api/allreviews/review/:id |  UPDATE review by review id             |
 | **DELETE**   |  /api/allreviews/review/:id |  DELETE review by review id             |
 
-**Example Data Inputs for the POST and PUT endpoints**
+**Example Data Inputs for the POST endpoint**
+/:id is the review id whereas itemId refers to the item for purchase
+```json
+{
+  "name": "Reviewing Hobbyist",
+  "stars": "4.5",
+  "date": "January 10, 2020",
+  "country": "the United States",
+  "review": "Gone are the days of biting off slice-sized chunks of banana and spitting them onto a serving tray…. Next on my wish list: a kitchen tool for dividing frozen water into cube-sized chunks.",
+  "image": "",
+  "title": "Best Hutzler 571 Banana Slicer",
+  "avatar": 2,
+  "foundThisHelpful": 1952
+}
+```
+
+**Example Data Inputs for the PUT endpoint**
 /:id is the review id whereas itemId refers to the item for purchase
 ```json
 {
@@ -40,6 +56,7 @@ npm start:prod
   "name": "Reviewing Hobbyist",
   "stars": "4.5",
   "date": "January 10, 2020",
+  "country": "the United States",
   "review": "Gone are the days of biting off slice-sized chunks of banana and spitting them onto a serving tray…. Next on my wish list: a kitchen tool for dividing frozen water into cube-sized chunks.",
   "image": "",
   "title": "Best Hutzler 571 Banana Slicer",
