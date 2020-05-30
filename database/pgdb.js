@@ -50,7 +50,17 @@ const deleteReview = (reviewId, cb) => {
 const addReview = (itemId, review, cb) => {
   var addQuery = `INSERT INTO itemreviews
                   ("itemId", name, stars, date, country, review, image, title, avatar, "foundThisHelpful")
-                  VALUES(${itemId}, '${review.name}', '${review.stars}', '${review.date}', '${review.country}', '${review.review}', '${review.image}', '${review.title}', ${review.avatar}, ${review.foundThisHelpful})
+                  VALUES(
+                    ${itemId},
+                    '${review.name}',
+                    '${review.stars}',
+                    '${review.date}',
+                    '${review.country}',
+                    '${review.review}',
+                    '${review.image}',
+                    '${review.title}',
+                    ${review.avatar},
+                    ${review.foundThisHelpful})
                   RETURNING id, "itemId", name, stars, date, country, review, image, title, avatar, "foundThisHelpful"`;
   client.query(addQuery, (err, data) => cb(err, data.rows));
 };
