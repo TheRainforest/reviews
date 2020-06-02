@@ -4,8 +4,8 @@ const express = require('express');
 const db = require('../database/pgdb.js');
 
 const app = express();
-const host = process.env.host || 'localhost';
-const port = process.env.port || 3004;
+const host = process.env.serverhost;
+const port = process.env.port;
 
 // MIDDLEWARE
 app.use(express.json());
