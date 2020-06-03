@@ -2,35 +2,24 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  host: process.env.dbhost,
-  port: process.env.dbport,
-  database: process.env.database,
-  user: process.env.dbuser,
-  password: process.env.dbpw,
+  host: process.env.DBHOST,
+  port: process.env.DBPORT,
+  database: process.env.DATABASE,
+  user: process.env.DBUSER,
+  password: process.env.DBPW,
 });
 pool.connect();
-
-// const client = new Client({
-//   host: process.env.dbhost,
-//   port: process.env.dbport,
-//   database: process.env.database,
-//   user: process.env.dbuser,
-//   password: process.env.dbpw,
-// });
-// client.connect();
 
 const getAllReviews = (itemId, cb) => {
   const getAllReviewsQuery = `SELECT * FROM itemreviews
                               WHERE "itemId" = ${itemId}
                               ORDER BY "foundThisHelpful" DESC`;
-  // client.query(getAllReviewsQuery, (err, data) => cb(err, data.rows));
   pool.query(getAllReviewsQuery, (err, data) => cb(err, data.rows));
 };
 
 const getReview = (reviewId, cb) => {
   const getReviewQuery = `SELECT * FROM itemreviews
                           WHERE id = ${reviewId}`
-  // client.query(getReviewQuery, (err, data) => cb(err, data.rows));
   pool.query(getReviewQuery, (err, data) => cb(err, data.rows));
 };
 
@@ -38,7 +27,6 @@ const deleteReview = (reviewId, cb) => {
   const deleteReviewQuery = `DELETE FROM itemreviews
                              WHERE id = ${reviewId}
                              RETURNING id, "itemId", name, stars, date, country, review, image, title, avatar, "foundThisHelpful"`
-  // client.query(deleteReviewQuery, (err, data) => cb(err, data.rows));
   pool.query(deleteReviewQuery, (err, data) => cb(err, data.rows));
 };
 
@@ -57,7 +45,6 @@ const addReview = (itemId, review, cb) => {
                     ${review.avatar},
                     ${review.foundThisHelpful})
                   RETURNING id, "itemId", name, stars, date, country, review, image, title, avatar, "foundThisHelpful"`;
-  // client.query(addQuery, (err, data) => cb(err, data.rows));
   pool.query(addQuery, (err, data) => cb(err, data.rows));
 };
 
@@ -76,7 +63,6 @@ const updateReview = (reviewId, review, cb) => {
               "foundThisHelpful" = ${review.foundThisHelpful}
             WHERE id=${reviewId}
             RETURNING id, "itemId", name, stars, date, country, review, image, title, avatar, "foundThisHelpful"`;
-  // client.query(updateReviewQuery, (err, data) => cb(err, data.rows));
   pool.query(updateReviewQuery, (err, data) => cb(err, data.rows));
 };
 
