@@ -1,10 +1,11 @@
+require('newrelic');
 require('dotenv').config();
 const express = require('express');
 const db = require('../database/pgdb.js');
 
 const app = express();
-const host = process.env.host || 'localhost';
-const port = process.env.port || 3004;
+const host = process.env.SERVERHOST;
+const port = process.env.PORT;
 
 // MIDDLEWARE
 app.use(express.json());

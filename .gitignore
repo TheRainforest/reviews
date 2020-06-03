@@ -1,5 +1,6 @@
 # Secrets
 .env
+newrelic.js
 
 # Compiled Dirs
 client/dist/bundle.js
@@ -13,6 +14,7 @@ clover.xml
 coverage-final.json
 lcov.info
 lcov-report
+newrelic_agent.log
 
 # Script Outputs and Unused DBs
 server/data

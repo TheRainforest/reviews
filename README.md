@@ -16,11 +16,11 @@ The page uses a '/?id=[id]' format. To visit the reviews page for the correspond
 **For Production**
 1. To start up the server (webpack with babel)
 ```sh
-npm run build:prod
+npm run build
 ```
 2. To start up the client
 ```sh
-npm start:prod
+npm start
 ```
 
 ### CRUD API
@@ -37,7 +37,7 @@ npm start:prod
 ```json
 {
   "name": "Reviewing Hobbyist",
-  "stars": "4.5",
+  "stars": 4,
   "date": "January 10, 2020",
   "country": "the United States",
   "review": "Gone are the days of biting off slice-sized chunks of banana and spitting them onto a serving tray…. Next on my wish list: a kitchen tool for dividing frozen water into cube-sized chunks.",
@@ -54,7 +54,7 @@ npm start:prod
 {
   "itemId": 1,
   "name": "Reviewing Hobbyist",
-  "stars": "4.5",
+  "stars": 4,
   "date": "January 10, 2020",
   "country": "the United States",
   "review": "Gone are the days of biting off slice-sized chunks of banana and spitting them onto a serving tray…. Next on my wish list: a kitchen tool for dividing frozen water into cube-sized chunks.",
@@ -68,7 +68,7 @@ npm start:prod
 ## Requirements
 This module follows [Airbnb style guide](https://github.com/airbnb/javascript)
 
-- mysql
+- PostgreSQL
 - Express.js
 - React with JSX
 - Node.js
@@ -89,10 +89,10 @@ npm install
 - Make a copy of .env_sample to add server host and port details.
 - Save as .env and ensure it's added to .gitignore.
 
-**Seed the database using seeder.js**
+<!-- **Import data to database by following instructions under postgresImport.js**
 ```sh
-npm run seed
-```
+
+``` -->
 
 **FOR DEVELOPMENT**
 1. To start up the server (webpack with babel)
@@ -108,20 +108,10 @@ npm start:dev
 npm test
 npm test:cov
 ```
+3. To generate records for the database
+In generateLargeData.js, update csv output location on line 21 and specify desired minimum records on line 31.
+```sh
+npm run data:gen
+```
 
-### Database-specific Instructions
-
-Change 'user' and 'pw' in config.js to your own (probably 'root', ''?)
-
-This component uses mariadb for a DBMS. Installing mariadb may cause conflicts with your mysql, so feel free to use mysql by following the numbered steps below. If using mariadb, skip the numbered steps.
-
-
-#### TO USE MYSQL INSTEAD OF MARIADB FOLLOW THESE STEPS
-- in database/index.js: change "const db = require("db/callback");" to "const db = require("mysql");"
-- terminal command: npm install mysql
-- terminal command: mysql -u <USER> -p < schema.sql // ----> should add the database 'reviews' to your databases
-
-IGNORE THE REST OF THE PAGE
-
-#### TO USE MARIADB
-Please ensure that mariadb is running and execute [mysql -u <USER> -p < schema.sql] to add the database followed by [npm run seed] to seed your database
+<!-- ### Database-specific Instructions -->
