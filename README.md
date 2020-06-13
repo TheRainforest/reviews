@@ -1,5 +1,4 @@
 # Rainforest: Reviews Service
-> Adds a new backend to the legacy code from Austin's frontend for the reviews service of an online retailer.
 
 ## Related Projects
 https://github.com/AmazonRainforest
@@ -14,7 +13,7 @@ https://github.com/AmazonRainforest
 The page uses a '/?id=[id]' format. To visit the reviews page for the corresponding id (replace [id] with a number ranging from 1-100).
 
 **For Production**
-1. To start up the server (webpack with babel)
+1. To start up the server
 ```sh
 npm run build
 ```
@@ -73,13 +72,8 @@ This module follows [Airbnb style guide](https://github.com/airbnb/javascript)
 - React with JSX
 - Node.js
 
-## To use with a proxy
-- styles.css is on the same level as index
-- webpack bundles as bundle.js
-- the module component is reviewsapp
-
-## Development
-### Installing Dependencies
+## For Development
+**Install Dependencies**
 
 From within the root directory:
 ```sh
@@ -89,29 +83,21 @@ npm install
 - Make a copy of .env_sample to add server host and port details.
 - Save as .env and ensure it's added to .gitignore.
 
-<!-- **Import data to database by following instructions under postgresImport.js**
-```sh
-
-``` -->
-
-**FOR DEVELOPMENT**
-1. To start up the server (webpack with babel)
+**Start up the server**
 ```sh
 npm run build:dev
 ```
-2. To start up the client
+**Start up the client**
 ```sh
 npm start:dev
 ```
-3. To test. Use 'test' to run without coverage, 'test:cov' for coverage reports
+**To test. Use 'test' to run without coverage, 'test:cov' for coverage reports**
 ```sh
 npm test
 npm test:cov
 ```
-3. To generate records for the database
+**To generate records for seeding database**
 In generateLargeData.js, update csv output location on line 21 and specify desired minimum records on line 31.
 ```sh
 npm run data:gen
 ```
-
-<!-- ### Database-specific Instructions -->
