@@ -1,7 +1,17 @@
 # Rainforest: Reviews Service
 
+
+
 ## Related Projects
-https://github.com/AmazonRainforest
+https://github.com/TheRainforest
+
+## Technologies Used
+  - Frontend: React, HTML5, CSS3, jQuery
+  - Backend: PostgreSQL, Express.js, Node.js
+  - Deployment: AWS (EC2, S3)
+
+## Style Guide
+This service follows [Airbnb style guide](https://github.com/airbnb/javascript)
 
 ## Table of Contents
 
@@ -63,14 +73,6 @@ npm start
   "foundThisHelpful": 1952
 }
 ```
-
-## Requirements
-This module follows [Airbnb style guide](https://github.com/airbnb/javascript)
-
-- PostgreSQL
-- Express.js
-- React with JSX
-- Node.js
 
 ## For Development
 **Install Dependencies**
