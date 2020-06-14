@@ -1,6 +1,5 @@
 # Rainforest: Reviews Service
-
-
+A reviews service used to dynamically render reviews on a given product. 
 
 ## Related Projects
 https://github.com/TheRainforest
