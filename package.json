@@ -35,7 +35,7 @@
     "babel-jest": "^25.5.1",
     "babel-loader": "^8.1.0",
     "babel-preset-airbnb": "^5.0.0",
-    "css-loader": "^3.5.3",
+    "css-loader": "^6.7.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -48,8 +48,8 @@
     "jest": "^25.5.4",
     "react-test-renderer": "^16.13.1",
     "style-loader": "^1.2.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "author": "",
   "license": "ISC"
